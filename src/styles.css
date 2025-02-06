@@ -1,0 +1,71 @@
+:root {
+  --light-aqua: #e2ffff;
+  --dark-blue: #1f2937;
+  --pink: #f774ba;
+  --light-pink: #fcc0ee;
+  --light-blue: #b6e4f2;
+  --slug-green: #7bb11d6a;
+  --light-grey: #b6b6b8;
+  --dark-grey: #646669;
+
+  /* whitesmoke color code: #F5F5F5 */
+}
+
+body {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  margin: 0;
+  width: 100%;
+  height: auto;
+  display: grid;
+  background-color: var(--light-aqua);
+}
+
+/* template.html */
+
+header {
+  display: flex;
+  flex-direction: column;
+  margin: -1rem;
+}
+
+header h1 {
+  text-align: center;
+  /* font-family: "Great Vibes"; */
+  font-size: 7rem;
+  color: var(--dark-blue);
+  margin-bottom: -0.5rem;
+}
+header h2 {
+  text-align: center;
+  font-size: 3rem;
+  color: var(--dark-blue);
+  margin-bottom: 1rem;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  border-top: var(--dark-blue);
+  border-top-width: 2px;
+  border-top-style: solid;
+  padding: 1rem;
+}
+
+nav button {
+  padding: 15px;
+  border: none;
+  font-weight: bold;
+  background-color: var(--light-grey);
+  color: whitesmoke;
+  font-size: 2em;
+  flex: 1;
+}
+
+nav button:hover {
+  text-decoration: underline;
+}
+
+#content {
+  display: grid;
+}
