@@ -1,47 +1,67 @@
-import { Project } from "./project.js";
+import { MakeATodo } from "./todos.js";
+// import { MakeAProject } from "./projects.js";
+import { createFormElement } from "./shared.js";
 export { addTodo };
 
 function addTodo() {
-  let project = Project();
+  let todo = MakeATodo();
+  let newTodo = todo.makeTodo();
+
   let projectDiv = document.getElementById("projectDiv");
-  // add todo to project
-  project.makeTodo();
-  project.addTodoToArray();
+
   //// create todo form
   let todoForm = document.createElement("form");
   todoForm.id = "todoForm";
   todoForm.className = "todoForm";
   projectDiv.appendChild(todoForm);
-  ///////////////////////////
+
   ////create form inputs - title
 
-  let title = document.createElement("input");
-  title.type = "text";
-  title.name = "title";
-  title.id = "title";
-  title.placeholder = "Todo title";
+  const titleInput = createFormElement("input", {
+    type: "text",
+    name: "title",
+    id: "title",
+    placeholder: "Todo title",
+  });
   let titleLabel = document.createElement("label");
   titleLabel.textContent = "Title:";
 
   ////create form inputs - description
-  let description = document.createElement("input");
-  description.type = "text";
-  description.name = "description";
-  description.id = "description";
-  description.placeholder = "What is your todo about?";
+
+  const descriptionInput = createFormElement("input", {
+    type: "text",
+    name: "description",
+    id: "description",
+    placeholder: "What is your todo about?",
+  });
   let descriptionLabel = document.createElement("label");
   descriptionLabel.textContent = "Description:";
 
   ////create form inputs - dueDate
-  let dueDate = document.createElement("input");
-  dueDate.type = "text";
-  dueDate.name = "dueDate";
-  dueDate.id = "dueDate";
-  dueDate.placeholder = "What is the due date for this todo?";
+
+  const dueDateInput = createFormElement("input", {
+    type: "text",
+    name: "dueDate",
+    id: "dueDate",
+    placeholder: "When is this todo due by?",
+  });
   let dueDateLabel = document.createElement("label");
   dueDateLabel.textContent = "Due date:";
 
+  //// create form inputs - note
+
+  const noteInput = createFormElement("input", {
+    type: "text",
+    name: "note",
+    id: "note",
+    placeholder: "Add a note for this todo",
+  });
+
+  let noteLabel = document.createElement("label");
+  noteLabel.textContent = "Note:";
+
   ////create form inputs - priority
+
   function createPriorityRadioButtons(radioOptions, priorityGroup) {
     const radioContainer = document.createElement("div");
     radioContainer.className = "radioContainer";
@@ -72,26 +92,17 @@ function addTodo() {
 
   const radioGroup = createPriorityRadioButtons(radioOptions, "priorityGroup");
 
-  //// create form inputs - note
-  let note = document.createElement("input");
-  note.type = "text";
-  note.name = "note";
-  note.id = "note";
-  note.placeholder = "Add a note for this todo...";
-  let noteLabel = document.createElement("label");
-  noteLabel.textContent = "Note:";
-
   ///////////////////////////
   ////add form elements to todoForm
   todoForm.appendChild(titleLabel);
-  todoForm.appendChild(title);
+  todoForm.appendChild(titleInput);
   todoForm.appendChild(descriptionLabel);
-  todoForm.appendChild(description);
+  todoForm.appendChild(descriptionInput);
   todoForm.appendChild(dueDateLabel);
-  todoForm.appendChild(dueDate);
+  todoForm.appendChild(dueDateInput);
   todoForm.appendChild(radioGroup);
   todoForm.appendChild(noteLabel);
-  todoForm.appendChild(note);
+  todoForm.appendChild(noteInput);
 
   ////create form inputs - check list
   ////add to todoForm

@@ -1,0 +1,84 @@
+:root {
+  --background: #e2ffff;
+  --dark-blue: #1f2937;
+  --pink: #f774ba;
+  --light-pink: #fcc0ee;
+  --light-blue: #b6e4f2;
+  --slug-green: #7bb11d6a;
+  --light-grey: #b6b6b8;
+  --dark-grey: #646669;
+
+  /* whitesmoke color code: #F5F5F5 */
+}
+
+/* New Project Modal*/
+
+.addProjectModal {
+  border-radius: 20px;
+  padding: 20px;
+  border-width: 10px;
+  border-color: var(--dark-blue);
+  background-color: var(--light-pink);
+}
+
+.addProjectModal #closeProjectModal {
+  width: 30px;
+  text-align: center;
+  border-radius: 20px;
+  font-weight: bold;
+  background-color: whitesmoke;
+  color: var(--dark-blue);
+  font-size: 1em;
+  justify-self: right;
+}
+
+.addProjectModal #projectForm {
+  display: grid;
+  padding: 2em;
+  gap: 1em;
+  font-size: 1.5em;
+  width: 15em;
+}
+
+.addProjectModal input[type="text"] {
+  height: 48px;
+  border-radius: 30px;
+  font-size: 1.5rem;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  background-color: whitesmoke;
+  padding-left: 10px;
+}
+
+.addProjectModal input[type="number"] {
+  height: 48px;
+  border-radius: 30px;
+  font-size: 1.5rem;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  background-color: whitesmoke;
+  padding-left: 10px;
+}
+
+.addProjectModal input[type="button"] {
+  width: 100px;
+  height: 50px;
+  font-family: "Great Vibes";
+  text-align: center;
+  border-radius: 20px;
+  font-weight: bold;
+  background-color: var(--dark-blue);
+  color: whitesmoke;
+  font-size: 1em;
+  justify-self: center;
+}
+
+.addProjectModal input[type="submit"] {
+  width: 300px;
+  height: 75px;
+  text-align: center;
+  border-radius: 20px;
+  font-weight: bold;
+  background-color: whitesmoke;
+  color: var(--dark-blue);
+  font-size: 1.5em;
+  justify-self: center;
+}

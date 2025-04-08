@@ -1,6 +1,6 @@
 import "../CSS/home.css";
-import { Project } from "./project.js";
-import { addTodo } from "./createTodo.js";
+import { modalToAddProject } from "./addProject.js";
+// import { ModifyMyProjects } from "./myProjects.js";
 export { projectHome };
 
 // DOM manipulation of:
@@ -16,50 +16,25 @@ function projectHome() {
   projectContainer.id = "projectContainer";
   content.appendChild(projectContainer);
 
-  // let project = Project();
+  const newProjectButton = document.createElement("button");
+  newProjectButton.id = "newProjectButton";
+  newProjectButton.className = "newProjectButton";
+  newProjectButton.textContent = "Start New Project";
+  projectContainer.appendChild(newProjectButton);
 
-  const addProjectButton = document.createElement("button");
-  addProjectButton.id = "addProjectButton";
-  addProjectButton.className = "addProjectButton";
-  addProjectButton.textContent = "Add Project";
-  projectContainer.appendChild(addProjectButton);
+  // create modal div
+  const addProjectModal = document.createElement("dialog");
+  addProjectModal.className = "addProjectModal";
+  addProjectModal.id = "addProjectModal";
+  content.appendChild(addProjectModal);
+
+  // open modal
+  newProjectButton.onclick = function () {
+    addProjectModal.style.display = "grid";
+  };
 
   document
-    .getElementById("addProjectButton")
-    .addEventListener("click", createProjectDiv);
-
-  createProjectDiv();
+    .getElementById("newProjectButton")
+    .addEventListener("click", modalToAddProject());
+  // addProject();
 }
-
-// Creating Project Divs
-const createProjectDiv = () => {
-  let projectContainer = document.getElementById("projectContainer");
-  let project = Project();
-
-  let todoArray = project.getProject();
-
-  const projectDiv = document.createElement("div");
-  projectDiv.id = "projectDiv";
-  projectDiv.className = "projectDiv";
-  projectDiv.textContent = "I am a project";
-  projectContainer.appendChild(projectDiv);
-
-  addTodo();
-
-  const addTodoButton = document.createElement("button");
-  addTodoButton.id = "addTodoButton";
-  addTodoButton.className = "addTodoButton";
-  addTodoButton.textContent = "+todo";
-  projectDiv.appendChild(addTodoButton);
-
-  document
-    .getElementById("addTodoButton")
-    .addEventListener(
-      "click",
-      addTodo,
-      project.addTodoToArray(),
-      console.log(todoArray),
-    );
-
-  return createProjectDiv;
-};
